@@ -1,7 +1,8 @@
 // Complete the following functions.
 // These functions only need to work with arrays.
 
-/* eslint-disable no-unused-vars, max-len */
+
+const each = (elements, cb) => {
   // Iterates over a list of elements, yielding each in turn to the `cb` function.
   // This only needs to work with arrays.
   // based off http://underscorejs.org/#each
@@ -46,5 +47,5 @@ module.exports = {
   reduce,
   find,
   filter,
-  flatten,
+  flatten
 };
