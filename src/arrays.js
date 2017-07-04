@@ -1,32 +1,53 @@
 // Complete the following functions.
 // These functions only need to work with arrays.
 
-
-const each = (elements, cb) => {
-  // Iterates over a list of elements, yielding each in turn to the `cb` function.
+  // Iterates over a list of elements, yielding each in turn to the `cb` function and keeps a count of the iterations.
   // This only needs to work with arrays.
   // based off http://underscorejs.org/#each
 const each = (elements, cb) => {
-  return elements.forEach(cb);
+  for (let i = 0; i < elements.length; i++) {
+    cb(elements[i], i);
+  }
 };
 
-const map = (elements, cb) => {
-  return elements.map(cb);
   // Produces a new array of values by mapping each value in list through a transformation function (iteratee).
   // Return the new array.
+const map = (elements, cb) => {
+  const result = [];
+  for (let i = 0; i < elements.length; i++) {
+    result.push(cb(elements[i]));
+  }
+  return result;
 };
 
-const reduce = (elements, cb, memo) => {
-  return elements.reduce
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `memo` is the starting value.  If `memo` is undefined then make `elements[0]` the initial value.
-};
 
-const find = (elements, cb) => {
+/*eslint-disable*/
+const reduce = (elements, cb, memo) => {
+  let acc;
+  let i;
+  // if memo exists let i = memo, otherwise set to 0
+  memo !== undefined ? acc = memo : acc = elements[0];
+  acc === memo ? i = 0 : i = 1; 
+  for (i; i < elements.length; i++) {
+    acc = cb(acc, elements[i]);
+  }
+  return acc;
+};
+/* eslint-enable*/
+
   // Look through each value in `elements` and pass each element to `cb`.
   // If `cb` returns `true` then return that element.
   // Return `undefined` if no elements pass the truth test.
+const find = (elements, cb) => {
+  for (let i = 0; i < elements.length; i++) {
+    if (cb(elements[i])) {
+      return elements[i];
+    }
+  }
+  return undefined;
 };
 
 const filter = (elements, cb) => {
