@@ -20,11 +20,10 @@ const map = (elements, cb) => {
   return result;
 };
 
+/*eslint-disable*/
   // Combine all elements into a single value going from left to right.
   // Elements will be passed one by one into `cb`.
   // `memo` is the starting value.  If `memo` is undefined then make `elements[0]` the initial value.
-
-/*eslint-disable*/
 const reduce = (elements, cb, memo) => {
   let acc;
   let i;
@@ -50,15 +49,41 @@ const find = (elements, cb) => {
   return undefined;
 };
 
-const filter = (elements, cb) => {
   // Similar to `find` but you will return an array of all elements that passed the truth test
   // Return an empty array if no elements pass the truth test
+const filter = (elements, cb) => {
+  const result = [];
+  for (let i = 0; i < elements.length; i++) {
+    // callback function executes test (true or false)
+    // if true add to result array
+    if (cb(elements[i])) result.push(elements[i]);
+  }
+  return result;
 };
 
 const flatten = (elements) => {
   // Flattens a nested array (the nesting can be to any depth).
   // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattened = [];
+  const str = elements.join();
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== ',') {
+      flattened.push(str[i]);
+    }
+  }
+  return flattened; // returns an array of strings...
 };
+console.log(flatten([1, [2], [3, [[4]]]]));
+
+const flatten2= (elements) => {
+  // Flattens a nested array (the nesting can be to any depth).
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  const flattened = [];
+};
+
+console.log(flatten([1, [2], [3, [[4]]]]));
+
+
 
 /* eslint-enable no-unused-vars, max-len */
 

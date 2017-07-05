@@ -19,18 +19,21 @@ const isThisMyFavorite = isMyFavoriteFood(food);
 //----------------
 //const, class, template literals, enhanced object literals (foo: foo, -> foo,)
 
-var User = function(options) {
-  this.username = options.username;
-  this.password = options.password;
-  this.sayHi = function() {
-    return this.username + ' says hello!';
+class User {
+  constructor(username, password) {
+    this.username = options.username;
+    this.password = options.password;
+}
+
+  sayHi() {
+    this.username + ' says hello!';
   };
 }
 
-var username = 'JavaScriptForever';
-var password = 'password';
+const username = 'JavaScriptForever';
+const password = 'password';
 
-var me = new User({
+const me = new User({
   username: username,
   password: password,
 });
