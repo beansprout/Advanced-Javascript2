@@ -68,9 +68,6 @@ const flatten = (elements) => {
   []
   );
 };
-<<<<<<< HEAD
-// console.log(flatten([1, [2], [3, [[4]]]]));
-=======
 
 console.log(flatten([1, [2], [3, [[4]]]]));
 
@@ -84,7 +81,6 @@ console.log(flatten([1, [2], [3, [[4]]]]));
 // case 2 - array of elements
 // case 3 - array of nested arrays
 // when you say I wish I could just reapply the code I've already written to this case that's a sign that you should use recursion.
->>>>>>> 457dfc80f1a9d3b4f615ba3ea81851719b6d7ab5
 
 //if (elem is an array) {
   const flatten = (elements) {
