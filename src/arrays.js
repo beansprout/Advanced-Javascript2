@@ -61,28 +61,14 @@ const filter = (elements, cb) => {
   return result;
 };
 
+  // Flattens a nested array (the nesting can be to any depth).
+  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
 const flatten = (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const flattened = [];
-  const str = elements.join();
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== ',') {
-      flattened.push(str[i]);
-    }
-  }
-  return flattened; // returns an array of strings...
+  elements.reduce((acc, current) => acc.concat(current),
+  []
+  );
 };
-console.log(flatten([1, [2], [3, [[4]]]]));
-
-const flatten2= (elements) => {
-  // Flattens a nested array (the nesting can be to any depth).
-  // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  const flattened = [];
-};
-
-console.log(flatten([1, [2], [3, [[4]]]]));
-
+// console.log(flatten([1, [2], [3, [[4]]]]));
 
 
 /* eslint-enable no-unused-vars, max-len */
