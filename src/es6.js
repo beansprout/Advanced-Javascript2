@@ -20,14 +20,14 @@ const isThisMyFavorite = isMyFavoriteFood(food);
 //const, class, template literals, enhanced object literals (foo: foo, -> foo,)
 
 class User {
-  constructor(username, password) {
+  constructor(options, username, password) {
     this.username = options.username;
     this.password = options.password;
 }
 
   sayHi() {
-    this.username + ' says hello!';
-  };
+    return `${this.username} says hello!`
+  }
 }
 
 const username = 'JavaScriptForever';
@@ -37,6 +37,8 @@ const me = new User({
   username: username,
   password: password,
 });
+
+
 
 // ----------------
 // let, const, =>, ... (spread operator)
