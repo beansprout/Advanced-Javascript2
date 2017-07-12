@@ -68,11 +68,11 @@ class Animal {
 
 class Cat extends Animal {
   constructor(options, name) {
-    super(options)
+    super(options);
     this.name = options.name;
   }
   meow() {
-     return `${this.name} meowed!`;
+    return `${this.name} meowed!`;
   }
 }
 
